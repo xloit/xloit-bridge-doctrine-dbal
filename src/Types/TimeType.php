@@ -31,8 +31,8 @@ class TimeType extends BaseTimeType
     /**
      *
      *
-     * @param  string           $value
-     * @param  AbstractPlatform $platform
+     * @param string           $value
+     * @param AbstractPlatform $platform
      *
      * @return DateTime
      * @throws \Doctrine\DBAL\Types\ConversionException

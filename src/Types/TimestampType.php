@@ -41,9 +41,9 @@ class TimestampType extends UTCDateTimeType
      * @param AbstractPlatform $platform
      *
      * @return string
-     * @throws \Xloit\DateTime\Exception\InvalidArgumentException
      * @throws \InvalidArgumentException
      * @throws \Doctrine\DBAL\Types\ConversionException
+     * @throws \Xloit\DateTime\Exception\InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {

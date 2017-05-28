@@ -82,7 +82,8 @@ abstract class AbstractEnumType extends Type
      * @param AbstractPlatform $platform The currently used database platform.
      *
      * @return mixed The database representation of the value.
-     * @throws Exception\InvalidArgumentException
+     * @throws \ReflectionException
+     * @throws \Xloit\Bridge\Doctrine\DBAL\Exception\InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -157,6 +158,7 @@ abstract class AbstractEnumType extends Type
      * Gets the name of this type.
      *
      * @return string
+     * @throws \ReflectionException
      */
     public function getName()
     {
@@ -189,13 +191,13 @@ abstract class AbstractEnumType extends Type
      * @param string $value ENUM value.
      *
      * @return string|null $value Value in readable format.
-     * @throws Exception\InvalidArgumentException
+     * @throws \Xloit\Bridge\Doctrine\DBAL\Exception\InvalidArgumentException
      */
     public static function getReadableValue($value)
     {
         if (!static::isValueExist($value)) {
             throw new Exception\InvalidArgumentException(
-                sprintf('Invalid value "%s" for ENUM type "%s".', $value, get_called_class())
+                sprintf('Invalid value "%s" for ENUM type "%s".', $value, static::class)
             );
         }
 

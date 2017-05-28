@@ -47,8 +47,8 @@ abstract class AbstractTimeZoneDateTimeType extends DateTimeType
      * @param AbstractPlatform $platform
      *
      * @return string
-     * @throws \Xloit\DateTime\Exception\InvalidArgumentException
      * @throws \Doctrine\DBAL\Types\ConversionException
+     * @throws \Xloit\DateTime\Exception\InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -68,12 +68,12 @@ abstract class AbstractTimeZoneDateTimeType extends DateTimeType
     /**
      *
      *
-     * @param  string           $value
-     * @param  AbstractPlatform $platform
+     * @param string           $value
+     * @param AbstractPlatform $platform
      *
      * @return PhpDateTime|mixed|null
-     * @throws \Xloit\DateTime\Exception\InvalidArgumentException
      * @throws \Doctrine\DBAL\Types\ConversionException
+     * @throws \Xloit\DateTime\Exception\InvalidArgumentException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -106,7 +106,7 @@ abstract class AbstractTimeZoneDateTimeType extends DateTimeType
     /**
      * Gets format of storage.
      *
-     * @param  AbstractPlatform $platform
+     * @param AbstractPlatform $platform
      *
      * @return string
      */

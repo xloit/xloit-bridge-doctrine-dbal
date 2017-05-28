@@ -19,7 +19,6 @@ namespace Xloit\Bridge\Doctrine\DBAL\Types;
 
 use ArrayObject;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Xloit\Bridge\Doctrine\DBAL\Exception;
 use Xloit\Std\ArrayUtils;
 
 /**
@@ -43,8 +42,8 @@ class ParameterType extends JsonType
      * @param AbstractPlatform  $platform
      *
      * @return string
-     * @throws Exception\InvalidArgumentException
      * @throws \Doctrine\DBAL\Types\ConversionException
+     * @throws \Zend\Json\Exception\RuntimeException
      * @throws \Zend\Stdlib\Exception\InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
@@ -63,8 +62,8 @@ class ParameterType extends JsonType
      * @param AbstractPlatform $platform
      *
      * @return ArrayObject
-     * @throws \Zend\Json\Exception\RuntimeException
      * @throws \Doctrine\DBAL\Types\ConversionException
+     * @throws \Zend\Json\Exception\RuntimeException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {

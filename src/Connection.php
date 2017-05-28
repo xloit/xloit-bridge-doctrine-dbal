@@ -89,7 +89,7 @@ class Connection extends DoctrineConnection implements ConnectionInterface
      * @param QueryCacheProfile|null $qcp
      *
      * @return StatementInterface
-     * @throws Exception
+     * @throws \Exception
      */
     public function executeQuery($query, array $params = [], $types = [], QueryCacheProfile $qcp = null)
     {
@@ -139,7 +139,7 @@ class Connection extends DoctrineConnection implements ConnectionInterface
      * Executes an SQL statement, returning a result set as a Statement object.
      *
      * @return StatementInterface
-     * @throws Exception
+     * @throws \Exception
      */
     public function query()
     {
@@ -199,8 +199,8 @@ class Connection extends DoctrineConnection implements ConnectionInterface
      * @param array  $params
      * @param array  $types
      *
-     * @return integer
-     * @throws Exception
+     * @return bool
+     * @throws \Exception
      */
     public function executeUpdate($query, array $params = [], array $types = [])
     {
@@ -234,7 +234,7 @@ class Connection extends DoctrineConnection implements ConnectionInterface
      * @param Exception $e
      * @param int       $attempt
      *
-     * @return boolean
+     * @return bool
      */
     public function validateReconnectAttempt(Exception $e, $attempt)
     {
@@ -263,8 +263,8 @@ class Connection extends DoctrineConnection implements ConnectionInterface
      * @param array  $params
      * @param int    $maxAttempts
      *
-     * @return integer
-     * @throws Exception
+     * @return bool
+     * @throws \Exception
      */
     public function locksSafeUpdate($query, array $params = [], $maxAttempts = 3)
     {
@@ -317,7 +317,7 @@ class Connection extends DoctrineConnection implements ConnectionInterface
     /**
      *
      *
-     * @return boolean
+     * @return bool
      */
     protected function isCanReconnectExceptions()
     {
@@ -327,7 +327,7 @@ class Connection extends DoctrineConnection implements ConnectionInterface
     /**
      *
      *
-     * @return boolean
+     * @return bool
      */
     protected function isDriverSupportReconnectExceptions()
     {

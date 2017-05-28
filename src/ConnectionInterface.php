@@ -40,7 +40,7 @@ interface ConnectionInterface extends DriverConnection
      * @param Exception $e
      * @param int       $attempt
      *
-     * @return boolean
+     * @return bool
      */
     public function validateReconnectAttempt(Exception $e, $attempt);
 }

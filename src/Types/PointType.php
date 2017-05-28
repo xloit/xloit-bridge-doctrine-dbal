@@ -113,8 +113,8 @@ class PointType extends Type
     /**
      * Modifies the SQL expression (identifier, parameter) to convert to a database value.
      *
-     * @param string                                    $sqlExpr
-     * @param \Doctrine\DBAL\Platforms\AbstractPlatform $platform
+     * @param string           $sqlExpr
+     * @param AbstractPlatform $platform
      *
      * @return string
      */
@@ -130,8 +130,8 @@ class PointType extends Type
     /**
      *
      *
-     * @param string                                    $sqlExpr
-     * @param \Doctrine\DBAL\Platforms\AbstractPlatform $platform
+     * @param string           $sqlExpr
+     * @param AbstractPlatform $platform
      *
      * @return string
      */

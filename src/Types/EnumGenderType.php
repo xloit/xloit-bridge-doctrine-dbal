@@ -18,7 +18,7 @@
 namespace Xloit\Bridge\Doctrine\DBAL\Types;
 
 /**
- * A {@link EnumGenderType} class.
+ * An {@link EnumGenderType} class.
  *
  * @package Xloit\Bridge\Doctrine\DBAL\Types
  */
@@ -34,16 +34,16 @@ class EnumGenderType extends AbstractEnumType
     /**
      *
      *
-     * @var string
+     * @var int
      */
-    const MAN = 'M';
+    const MAN = 1;
 
     /**
      *
      *
-     * @var string
+     * @var int
      */
-    const WOMAN = 'W';
+    const WOMAN = 2;
 
     /**
      * Array of ENUM Values, where ENUM values are keys and their readable versions are values.
@@ -51,8 +51,8 @@ class EnumGenderType extends AbstractEnumType
      * @var array
      */
     protected static $choices = [
-        self::MAN   => self::MAN,
-        self::WOMAN => self::WOMAN
+        self::MAN   => 'Man',
+        self::WOMAN => 'Woman'
     ];
 
     /**

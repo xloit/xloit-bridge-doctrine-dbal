@@ -79,8 +79,8 @@ class Statement extends DoctrineStatement
      *
      * @param array|null $params
      *
-     * @return boolean
-     * @throws Exception
+     * @return bool
+     * @throws \Exception
      * @throws \Doctrine\DBAL\DBALException
      */
     public function execute($params = null)
@@ -123,7 +123,7 @@ class Statement extends DoctrineStatement
      * @param mixed  $value
      * @param mixed  $type
      *
-     * @return boolean
+     * @return bool
      */
     public function bindValue($name, $value, $type = null)
     {
@@ -139,12 +139,12 @@ class Statement extends DoctrineStatement
      * Binds a parameter to a value by reference.
      * Binding a parameter by reference does not support DBAL mapping types.
      *
-     * @param string       $name
-     * @param mixed        $var
-     * @param integer      $type
-     * @param integer|null $length
+     * @param string    $name
+     * @param mixed     $var
+     * @param int       $type
+     * @param bool|null $length
      *
-     * @return boolean
+     * @return bool
      */
     public function bindParam($name, &$var, $type = PDO::PARAM_STR, $length = null)
     {
@@ -160,7 +160,7 @@ class Statement extends DoctrineStatement
     /**
      * Fetches the next row from a result set.
      *
-     * @param integer|null $fetchMode
+     * @param int $fetchMode
      *
      * @return mixed
      */
@@ -172,8 +172,8 @@ class Statement extends DoctrineStatement
     /**
      * Returns an array containing all of the result set rows.
      *
-     * @param integer|null $fetchMode
-     * @param mixed        $fetchArgument
+     * @param int   $fetchMode
+     * @param mixed $fetchArgument
      *
      * @return array
      */

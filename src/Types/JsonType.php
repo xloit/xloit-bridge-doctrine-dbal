@@ -67,8 +67,8 @@ class JsonType extends AbstractJsonType
      * @param AbstractPlatform $platform
      *
      * @return mixed
-     * @throws \Zend\Json\Exception\RuntimeException
      * @throws \Doctrine\DBAL\Types\ConversionException
+     * @throws \Zend\Json\Exception\RuntimeException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {

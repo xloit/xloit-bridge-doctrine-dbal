@@ -30,7 +30,7 @@ abstract class AbstractTimeZoneTimeType extends AbstractTimeZoneDateTimeType
     /**
      * Gets format of storage.
      *
-     * @param  AbstractPlatform $platform
+     * @param AbstractPlatform $platform
      *
      * @return string
      */

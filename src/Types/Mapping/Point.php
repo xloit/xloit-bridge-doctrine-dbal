@@ -95,7 +95,7 @@ class Point
      *
      * @param string $points string in (%f,%f) format
      *
-     * @return static
+     * @return $this
      */
     public static function fromString($points)
     {
