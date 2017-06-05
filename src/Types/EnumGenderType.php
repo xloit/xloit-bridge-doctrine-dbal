@@ -29,7 +29,7 @@ class EnumGenderType extends AbstractEnumType
      *
      * @var string
      */
-    const ENUM_GENDER = 'enumGenderType';
+    const ENUM_GENDER = 'enumGender';
 
     /**
      *

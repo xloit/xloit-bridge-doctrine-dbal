@@ -33,7 +33,7 @@ class TimeZoneType extends StringType
      *
      * @var string
      */
-    const TIMEZONE = 'timeZoneType';
+    const TIMEZONE = 'timezone';
 
     /**
      * Modifies the SQL expression (identifier, parameter) to convert to a database value.
