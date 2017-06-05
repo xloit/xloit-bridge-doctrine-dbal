@@ -27,68 +27,16 @@ class Point
     /**
      *
      *
-     * @var float|int
+     * @var float
      */
     protected $latitude = 0.0;
 
     /**
      *
      *
-     * @var float|int
+     * @var float
      */
     protected $longitude = 0.0;
-
-    /**
-     * Constructor to prevent {@link Point} from being loaded more than once.
-     *
-     * @param float|int $latitude
-     * @param float|int $longitude
-     */
-    public function __construct($latitude = 0.0, $longitude = 0.0)
-    {
-        $this->latitude  = $latitude;
-        $this->longitude = $longitude;
-    }
-
-    /**
-     * Returns point latitude.
-     *
-     * @return float|int
-     */
-    public function getLatitude()
-    {
-        return $this->latitude;
-    }
-
-    /**
-     * Returns point longitude.
-     *
-     * @return float|int
-     */
-    public function getLongitude()
-    {
-        return $this->longitude;
-    }
-
-    /**
-     *
-     *
-     * @return bool
-     */
-    public function isEmpty()
-    {
-        return $this->latitude === null && $this->longitude === null;
-    }
-
-    /**
-     * Returns string representation for Point in (%f,%f) format.
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string) sprintf('(%F,%F)', $this->latitude, $this->longitude);
-    }
 
     /**
      * Creates new Point from string.
@@ -108,7 +56,7 @@ class Point
      *
      * @param array $points either hash or array of lat, long.
      *
-     * @return Point
+     * @return $this
      */
     public static function fromArray(array $points)
     {
@@ -117,5 +65,57 @@ class Point
         }
 
         return new self($points[0], $points[1]);
+    }
+
+    /**
+     * Constructor to prevent {@link Point} from being loaded more than once.
+     *
+     * @param float|int $latitude
+     * @param float|int $longitude
+     */
+    public function __construct($latitude = 0.0, $longitude = 0.0)
+    {
+        $this->latitude  = (float) $latitude;
+        $this->longitude = (float) $longitude;
+    }
+
+    /**
+     * Returns point latitude.
+     *
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Returns point longitude.
+     *
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     *
+     *
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return $this->latitude === 0.0 && $this->longitude === 0.0;
+    }
+
+    /**
+     * Returns string representation for Point in (%f,%f) format.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) sprintf('(%F,%F)', $this->latitude, $this->longitude);
     }
 }
