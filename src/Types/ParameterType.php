@@ -19,6 +19,7 @@ namespace Xloit\Bridge\Doctrine\DBAL\Types;
 
 use ArrayObject;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Xloit\Collection\RecursiveCollection;
 use Xloit\Std\ArrayUtils;
 
 /**
@@ -38,8 +39,8 @@ class ParameterType extends JsonType
     /**
      *
      *
-     * @param mixed|ArrayObject $value
-     * @param AbstractPlatform  $platform
+     * @param \Traversable $value
+     * @param AbstractPlatform          $platform
      *
      * @return string
      * @throws \Doctrine\DBAL\Types\ConversionException
@@ -52,7 +53,9 @@ class ParameterType extends JsonType
             return null;
         }
 
-        return parent::convertToDatabaseValue(ArrayUtils::iteratorToArray($value), $platform);
+        return parent::convertToDatabaseValue(
+            ArrayUtils::iteratorToArray($value), $platform
+        );
     }
 
     /**
@@ -61,17 +64,24 @@ class ParameterType extends JsonType
      * @param mixed            $value
      * @param AbstractPlatform $platform
      *
-     * @return ArrayObject
+     * @return RecursiveCollection
      * @throws \Doctrine\DBAL\Types\ConversionException
+     * @throws \Xloit\Collection\Exception\InvalidArgumentException
      * @throws \Zend\Json\Exception\RuntimeException
+     * @throws \Zend\Stdlib\Exception\InvalidArgumentException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
+        $className = class_exists(RecursiveCollection::class) ?
+            RecursiveCollection::class : ArrayObject::class;
+
         if (!$value) {
-            return new ArrayObject();
+            return new $className();
         }
 
-        return new ArrayObject(parent::convertToPHPValue($value, $platform));
+        $results = parent::convertToPHPValue($value, $platform);
+
+        return new $className(ArrayUtils::iteratorToArray($results));
     }
 
     /**
