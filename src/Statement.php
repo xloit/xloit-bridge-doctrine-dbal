@@ -164,9 +164,11 @@ class Statement extends DoctrineStatement
      *
      * @return mixed
      */
-    public function fetch($fetchMode = PDO::FETCH_BOTH)
+    public function fetch($fetchMode = null)
     {
-        return $this->stmt->fetch($fetchMode);
+        return $this->stmt->fetch(
+            $fetchMode !== null ? $fetchMode : PDO::FETCH_BOTH
+        );
     }
 
     /**
@@ -179,6 +181,11 @@ class Statement extends DoctrineStatement
      */
     public function fetchAll($fetchMode = PDO::FETCH_BOTH, $fetchArgument = 0)
     {
+        if ($fetchArgument !== 0) {
+            /** @noinspection PhpMethodParametersCountMismatchInspection */
+            return $this->stmt->fetchAll($fetchMode, $fetchArgument);
+        }
+
         return $this->stmt->fetchAll($fetchMode);
     }
 }
