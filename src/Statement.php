@@ -161,10 +161,12 @@ class Statement extends DoctrineStatement
      * Fetches the next row from a result set.
      *
      * @param int $fetchMode
+     * @param int $cursorOrientation
+     * @param int $cursorOffset
      *
      * @return mixed
      */
-    public function fetch($fetchMode = null)
+    public function fetch($fetchMode = null, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0)
     {
         return $this->stmt->fetch(
             $fetchMode !== null ? $fetchMode : PDO::FETCH_BOTH
@@ -174,12 +176,13 @@ class Statement extends DoctrineStatement
     /**
      * Returns an array containing all of the result set rows.
      *
-     * @param int   $fetchMode
-     * @param mixed $fetchArgument
+     * @param int|null $fetchMode
+     * @param mixed    $fetchArgument
+     * @param int     $control
      *
      * @return array
      */
-    public function fetchAll($fetchMode = PDO::FETCH_BOTH, $fetchArgument = 0)
+    public function fetchAll($fetchMode = PDO::FETCH_BOTH, $fetchArgument = 0, $control = null)
     {
         if ($fetchArgument !== 0) {
             /** @noinspection PhpMethodParametersCountMismatchInspection */
