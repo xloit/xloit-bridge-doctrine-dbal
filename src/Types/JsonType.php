@@ -19,7 +19,7 @@ namespace Xloit\Bridge\Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
-use Doctrine\DBAL\Types\JsonArrayType as AbstractJsonType;
+use Doctrine\DBAL\Types\JsonType as AbstractJsonType;
 use Zend\Json\Json;
 
 /**
